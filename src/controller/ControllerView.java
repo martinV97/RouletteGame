@@ -8,16 +8,22 @@ import logic.entities.Bet;
 import logic.entities.Player;
 import logic.entities.Round;
 import utils.Constants;
+import view.AboutEnginners;
+import view.Instructions;
 import view.MainWindow;
 
 public class ControllerView implements ActionListener {
 	public MainWindow mainWindow;
 	private ControllerLogic controllerLogic;
 	public Player userPlayer;
-
+	public AboutEnginners aboutEnginners;
+	public Instructions help;
+	
 	public ControllerView() {
 		this.mainWindow = new MainWindow(this);
 		this.controllerLogic = new ControllerLogic(this);
+		this.aboutEnginners = new AboutEnginners();
+		this.help = new Instructions();
 		this.openWindow();
 	}
 
@@ -60,6 +66,15 @@ public class ControllerView implements ActionListener {
 							Integer.parseInt(this.mainWindow.getPanelUser().getBetMoneyTxt().getText())));
 			this.mainWindow.getPanelUser().clearBetFields();
 			break;
+		case Constants.PROGRAMMER:
+			aboutEnginners.setVisible(true);
+			break;
+		case Constants.EXIT:
+			this.mainWindow.close();
+		case Constants.HELP:
+            help.setVisible(true);
+            break;
+			
 		default:
 			break;
 		}

@@ -30,6 +30,13 @@ public class Round {
 
 	public Object[] toVector() {
 		Numero numero = this.tablero.getTablero().get(this.resultRound);
-		return new Object[]{numero.getNumero(), numero.getColor()};
+		if(numero.getColor() == 'r')
+			return new Object[]{numero.getNumero(), "Rojo"};
+		else
+			return new Object[]{numero.getNumero(), "Negro"};
+	}
+	
+	public Numero getNumeroResult() {
+		return this.tablero.getTablero().get(this.resultRound);
 	}
 }

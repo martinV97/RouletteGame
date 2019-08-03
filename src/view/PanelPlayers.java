@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
 
@@ -24,6 +25,7 @@ public class PanelPlayers extends JPanel {
 
 	public PanelPlayers(ControllerView controllerView) {
 		setLayout(new BorderLayout());
+		this.setBackground(new Color(47,79,79));
 		playersTableModel = new DefaultTableModel();
 		playersTableModel.setColumnIdentifiers(new Object[]{"Nombre", "Dinero",});
 		playersTable = new JTable(playersTableModel);

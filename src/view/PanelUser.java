@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -28,44 +29,64 @@ public class PanelUser extends JPanel {
 	
 	public PanelUser(ControllerView controllerView){
 		this.setLayout(new GridLayout(4, 4));
+		this.setBackground(new Color(47,79,79));
 		this.controllerView = controllerView;
 		startComponents();
 	}
 
 	private void startComponents() {
 		this.nameLbl = new JLabel("Nombre jugador:");
+		this.nameLbl.setForeground(Color.WHITE);
 		this.add(this.nameLbl);
 		this.nameTxt = new JTextField();
+		this.nameTxt.setBackground(new Color(128,128,0));
+		this.nameTxt.setForeground(Color.WHITE);
 		this.add(this.nameTxt);
 		this.initialMoneyLbl = new JLabel("Cantidad de dinero:");
+		this.initialMoneyLbl.setForeground(Color.WHITE);
 		this.add(this.initialMoneyLbl);
 		this.initialMoneyTxt = new JTextField();
+		this.initialMoneyTxt.setForeground(Color.WHITE);
+		this.initialMoneyTxt.setBackground(new Color(128,128,0));
 		this.add(this.initialMoneyTxt);
 		this.enterRouletteBtn = new JButton("Entrar");
 		this.enterRouletteBtn.addActionListener(controllerView);
 		this.enterRouletteBtn.setActionCommand(Constants.ENTER_PLAYER);
+		this.enterRouletteBtn.setForeground(Color.WHITE);
+		this.enterRouletteBtn.setBackground(new Color(128,0,0));
 		this.add(this.enterRouletteBtn);
 		this.betTypeLbl = new JLabel("Tipo de Apuesta:");
+		this.betTypeLbl.setForeground(Color.WHITE);
 		this.add(this.betTypeLbl);
 		this.betTypeBox = new JComboBox<>();
+		this.betTypeBox.setForeground(Color.WHITE);
+		this.betTypeBox.setBackground(new Color(128,128,0));
 		setBetTypesToComboBox();
 		this.betTypeBox.setEnabled(false);
 		this.add(this.betTypeBox);
 		this.add(new JLabel());
 		this.betMoneyLbl = new JLabel("Cantidad a apostar:");
+		this.betMoneyLbl.setForeground(Color.WHITE);
 		this.add(this.betMoneyLbl);
 		this.betMoneyTxt = new JTextField();
+		this.betMoneyTxt.setForeground(Color.WHITE);
+		this.betMoneyTxt.setBackground(new Color(128,128,0));
 		this.betMoneyTxt.setEnabled(false);
 		this.add(this.betMoneyTxt);
 		this.informationBetLbl = new JLabel("Información adicional de la apuesta:");
+		this.informationBetLbl.setForeground(Color.WHITE);
 		this.add(this.informationBetLbl);
 		this.informationBetTxt = new JTextField();
+		this.informationBetTxt.setForeground(Color.WHITE);
+		this.informationBetTxt.setBackground(new Color(128,128,0));
 		this.informationBetTxt.setEnabled(false);
 		this.add(this.informationBetTxt);
 		this.sendBet = new JButton("Apostar");
 		this.sendBet.setEnabled(false);
 		this.sendBet.addActionListener(this.controllerView);
 		this.sendBet.setActionCommand(Constants.SEND_BET);
+		this.sendBet.setForeground(Color.WHITE);
+		this.sendBet.setBackground(new Color(128,0,0));
 		this.add(this.sendBet);
 	}
 

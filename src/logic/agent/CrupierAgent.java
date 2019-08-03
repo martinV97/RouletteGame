@@ -2,9 +2,12 @@ package logic.agent;
 
 import java.awt.Color;
 
+import javax.swing.JOptionPane;
+
 import controller.ControllerView;
 import logic.entities.Crupier;
 import logic.entities.Roulette;
+import utils.Numero;
 
 public class CrupierAgent extends Thread{
 	private Crupier crupier;
@@ -23,7 +26,7 @@ public class CrupierAgent extends Thread{
 	public void run() {
 		while(this.inGame) {
 			this.controllerView.getControllerLogic().validateMoneyOfPlayers();
-			if(this.controllerView.userPlayer.getPlayerMoney() > 0)
+			if(this.controllerView.userPlayer != null && this.controllerView.userPlayer.getPlayerMoney() > 0)
 				this.controllerView.mainWindow.getPanelUser().getSendBet().setEnabled(true);
 			this.controllerView.mainWindow.getTitleLbl().setText("En Espera");
 			this.controllerView.mainWindow.getTitleLbl().setForeground(Color.GREEN);
@@ -77,6 +80,13 @@ public class CrupierAgent extends Thread{
 
 	public void setInGame(boolean inGame) {
 		this.inGame = inGame;
+	}
+
+	public void showMessageResult(Numero numeroResult) {
+		if(numeroResult.getColor() == 'r')
+			JOptionPane.showMessageDialog(this.controllerView.mainWindow, "El resultado de la ruleta es: " + numeroResult.getNumero() + " Rojo.");
+		else
+			JOptionPane.showMessageDialog(this.controllerView.mainWindow, "El resultado de la ruleta es: " + numeroResult.getNumero() + " Negro.");
 	}
 
 	

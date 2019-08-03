@@ -43,4 +43,7 @@ public class Constants {
 	public static final String ENTER_PLAYER = "ENTER_PLAYER";
 	public static final String SEND_BET = "SEND_BET";
 	public static final String START_SIMULATION = "START_SIMULATION";
+	public static final String EXIT = "exit";
+	public static final String PROGRAMMER = "programmer";
+	public static final String HELP = "help";
 }

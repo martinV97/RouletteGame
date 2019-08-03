@@ -2,6 +2,8 @@ package logic.entities;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import logic.agent.CrupierAgent;
 import utils.Constants;
 import utils.Numero;
@@ -42,6 +44,8 @@ public class Crupier {
 		Numero numero = roulette.getNumber();
 		payToWinners(numero.getNumero(), numero.getColor());
 		this.roundList.get(this.roundList.size() - 1).setResultRound(numero.getNumero());
+		this.crupierAgent.showMessageResult(this.roundList.get(this.roundList.size() - 1).getNumeroResult());
+		this.roundList.get(this.roundList.size() - 1).getNumeroResult();
 		this.crupierAgent.setInRound(false);
 		updateListGame();
 	}	
